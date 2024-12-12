@@ -31,11 +31,6 @@ app.use("/api/users", authRoutes); // Authentication routes: register, login, pr
 // Protected routes (appointment-related)
 app.use("/api/appointments", protect, appointmentRoutes); // Appointment routes: book, get schedule
 
-// Handle 404 errors (routes that are not found)
-app.use((req, res) => {
-  res.status(404).json({ message: "Route not found" });
-});
-
 // Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
